@@ -1,15 +1,19 @@
 import "./stickman.css"
 
-const StickMan = () => {
+interface StickmanProps {
+  position: { x: number; y: number };
+}
+const StickMan: React.FC<StickmanProps> = ({ position }) => {
+  console.log(position)
   return (
     <>
-      <div className="stickman">
-        <div className="head bg-black rounded-full h-8 w-8"></div>
-        <div className="body h-16 w-2 bg-black"></div>
-        <div className="arm rotate-45 left absolute bg-black h-10 w-2"></div>
-        <div className="arm -rotate-45 right absolute bg-black h-10 w-2"></div>
-        <div className="leg rotate-45 left absolute bg-black h-14 w-2"></div>
-        <div className="leg -rotate-45 right absolute bg-black h-14 w-2"></div>
+      <div className="stickman relative" style={{ top: position.y, left: position.x }}>
+        <div className="head w-10 bg-black rounded-full h-10"></div>
+        <div className="body h-28 w-3 rounded-t-full bg-black rounded-b-full top-8 left-3 absolute"></div>
+        <div className="left-hand bg-black rounded-t-full rounded-b-full h-16 w-3 rotate-45 absolute -left-2"></div>
+        <div className="left-hand bg-black rounded-t-full rounded-b-full h-16 w-3 -rotate-45 absolute left-8"></div>
+        <div className="left-hand bg-black rounded-t-full rounded-b-full h-16 w-3 rotate-45 absolute -left-2 top-32"></div>
+        <div className="left-hand bg-black rounded-t-full rounded-b-full h-16 w-3 -rotate-45 absolute left-8 top-32"></div>
       </div>
     </>
   );

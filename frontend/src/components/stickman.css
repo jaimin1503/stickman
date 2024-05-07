@@ -1,0 +1,7 @@
+.stickman .body {
+  transition: transform 0.5s ease; /* Add transition for smooth movement */
+}
+
+.stickman:hover {
+  transform: rotate(5deg); /* Example: rotate the body slightly when hovered */
+}
